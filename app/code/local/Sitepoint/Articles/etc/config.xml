@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sitepoint_Articles>
+            <version>0.1.1</version>    <!-- Version of module -->
+        </Sitepoint_Articles>
+    </modules>
+    <frontend>
+        <routers>
+            <articles>
+                <use>standard</use>
+                <args>
+                    <module>Sitepoint_Articles</module>
+                    <frontName>articles</frontName>
+                </args>
+            </articles>
+        </routers>
+        <layout>
+            <updates>
+                <articles>
+                    <file>articles.xml</file> <!-- our layout file name -->
+                </articles>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+	<models>
+        <articles>
+            <class>Sitepoint_Articles_Model</class> <!-- Model class files -->
+            <resourceModel>articles_mysql4</resourceModel> <!--Resource model -->
+        </articles>
+        <articles_mysql4>
+            <class>Sitepoint_Articles_Model_Mysql4</class>
+            <entities>
+                <articles>
+                    <table>articles</table>  <!-- Db table name  -->
+                </articles>
+            </entities>
+        </articles_mysql4>
+    </models>
+    <resources>  
+        <articles_setup>
+            <setup>
+                <module>Sitepoint_Articles</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </articles_setup>
+        <articles_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </articles_write>
+        <articles_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </articles_read>
+    </resources>
+		<blocks>
+            <articles>
+                <class>Sitepoint_Articles_Block</class>
+            </articles>
+        </blocks>
+    </global>
+</config>
+
+
